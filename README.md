@@ -1,6 +1,6 @@
 # CUSTOM_LIBS
 
-**Objectifs: Regrouper des librairies crée pour différent projet**\
+**Objectifs: Regrouper des librairies crée pour différent projet**
 
 
 ## Fonctions de la libft
