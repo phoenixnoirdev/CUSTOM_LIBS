@@ -3,7 +3,7 @@
 **Objectifs: Regrouper des librairies crée pour différent projet**
 
 
-## Fonctions: Libft
+## Fonctions de la libft
 • ft_atoi
 • ft_atoill
 • ft_bzero
@@ -51,9 +51,11 @@
 • ft_toupper
 
 
-## Fonctions: FtPrintf
+## Fonctions de ftprintf
 • ft_printf
-
-
-## Fonctions: GetNextLine
-• get_next_line
+• ft_putchar_fd_ptf
+• ft_puthexa_fd_ptf
+• ft_putnbr_fd_ptf
+• ft_putptr_fd_ptf
+• ft_putstr_fd_ptf
+• ft_putunsbr_fd_ptf

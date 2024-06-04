@@ -6,7 +6,7 @@
 #    By: phkevin <phkevin@42luxembourg.lu>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 12:48:38 by phkevin           #+#    #+#              #
-#    Updated: 2024/06/04 14:10:04 by phkevin          ###   ########.fr        #
+#    Updated: 2024/05/31 01:50:48 by phkevin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,37 +14,23 @@
 #	Makefile variables
 ################################################################################
 
+NAMECC	=	get_next_line
 CC		=	clang
 FLAGWS	=	-Wall -Wextra -Werror
 AR		=	ar rcs
 RM		=	/bin/rm -f
 
 ################################################################################
-#	Compilation -> Libft
+#	Mandatory part
 ################################################################################
 
-LIBFT_DIR	=	./libft
+NAME		=	libgetnextline.a
+OBJS_DIR	=	./
+OBJS		=	$(addprefix $(OBJS_DIR), $(FILES:.c=.o))
 
-################################################################################
-#	Compilation -> Ft Printf
-################################################################################
+FILES	=	get_next_line.c \
+			get_next_line_utils.c 
 
-PRINTF_DIR	=	./ftprintf
-
-################################################################################
-#	Compilation -> Get Next line
-################################################################################
-
-GETNEXTLINE_DIR	=	./getnextline
-
-################################################################################
-#	Lib
-################################################################################
-
-LIB		=	-L$(LIBFT_DIR) -lft \
-			-L$(PRINTF_DIR) -lftprintf \
-			-L$(GETNEXTLINE_DIR) -lgetnextline \
-			
 ################################################################################
 #	Colors
 ################################################################################
@@ -60,38 +46,31 @@ RED = \033[0;31m
 #	Rules
 ################################################################################
 
-all:	$(LIBFT_DIR)/libft.a \
-		$(PRINTF_DIR)/libftprintf.a \
-		$(GETNEXTLINE_DIR)/lgetnextline.a
-		@make --silent good
-		@echo "$(RED)ALL LIB COMPILED$(NO_COLOR)"
-		@make --silent separate_green
+all: $(NAME)
 
-$(LIBFT_DIR)/libft.a:
-	@make --silent separate_green
-	@$(MAKE) -sC $(LIBFT_DIR)
-	
-$(PRINTF_DIR)/libftprintf.a:
-	@$(MAKE) -sC $(PRINTF_DIR)
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "$(GREEN)$(NAMECC) compiled!$(NO_COLOR)"
+	@ranlib $(NAME)
+	@echo "$(GREEN)$(NAMECC) optimised!$(NO_COLOR)"
+	@make --silent good
+	@make --silent separate
 
-$(GETNEXTLINE_DIR)/lgetnextline.a:
-	@$(MAKE) -sC $(GETNEXTLINE_DIR)
+%.o: %.c
+	@$(CC) $(FLAGWS) -c -o $@ $<
+	@echo "$(YELLOW)Compiling: $< $(NO_COLOR)"
 
 clean:
-	@make --silent separate_red
-	@$(RM) $(C_OBJS) $(S_OBJS)
-	@echo "$(BLUE)lib files cleaned!$(NO_COLOR)"
-	@echo ""
+	@$(RM) $(OBJS)
+	@echo "$(BLUE)$(NAMECC) object files cleaned!$(NO_COLOR)"
 
 fclean: clean
-	@$(MAKE) -sC $(LIBFT_DIR) fclean
-	@$(MAKE) -sC $(PRINTF_DIR) fclean
-	@$(MAKE) -sC $(GETNEXTLINE_DIR) fclean
-	@echo "$(CYAN)all lib files cleaned!$(NO_COLOR)"
-	@make --silent separate_red
+	@$(RM) $(NAME)
+	@echo "$(CYAN)$(NAMECC) executable files cleaned!$(NO_COLOR)"
+	@echo ""
 
 re: fclean all
-	@echo "$(GREEN)all lib RE compiled!$(NO_COLOR)"
+	@echo "$(GREEN)$(NAMECC) RE compiled!$(NO_COLOR)"
 
 .PHONY: all clean fclean re
 
@@ -99,15 +78,11 @@ re: fclean all
 #	Extra
 ################################################################################
 
-separate_blue:
-	@echo "$(BLUE)\n#####################################################################\n$(NO_COLOR)"
-
-separate_red:
-	@echo "$(RED)\n#####################################################################\n$(NO_COLOR)"
-
-separate_green:
-	@echo "$(GREEN)\n#####################################################################\n$(NO_COLOR)"
-
+separate:
+	@echo ""
+	@echo "$(BLUE)#####################################################################$(NO_COLOR)"
+	@echo ""
+	
 good:
 	@echo ""
 	@echo "     /)                     (\\"
@@ -198,7 +173,7 @@ cafeanime:
 	@echo '     /  .--.|   `""---...........---""`   |'
 	@echo "    /  /    |                             |"
 	@echo "    |  |    |                             |"
-	@echo "     \  \   |        COFFEE BREAK         |"
+	@echo "     \  \   |                             |"
 	@echo "      '\ '\ |                             |"
 	@echo "        '\ '|                             |"
 	@echo "        _/ /\                             /"
@@ -248,7 +223,7 @@ cafeanime:
 	@echo '     /  .--.|   `""---...........---""`   |'
 	@echo "    /  /    |                             |"
 	@echo "    |  |    |                             |"
-	@echo "     \  \   |        COFFEE BREAK         |"
+	@echo "     \  \   |                             |"
 	@echo "      '\ '\ |                             |"
 	@echo "        '\ '|                             |"
 	@echo "        _/ /\                             /"
@@ -288,107 +263,7 @@ cafeanime:
 	@echo '         ""--..,,_____            _____,,..--"""'''
 	@echo '                      """------"""'
 	@echo ""
-	@sleep 0.5
-	@clear
-	@echo ""
-	@echo "                   ("
-	@echo "	                     )     ("
-	@echo "               ___...(-------)-....___"
-	@echo '           .-""       )    (          ""-.'
-	@echo "      .-''''|-._             )         _.-|"
-	@echo '     /  .--.|   `""---...........---""`   |'
-	@echo "    /  /    |                             |"
-	@echo "    |  |    |                             |"
-	@echo "     \  \   |        COFFEE BREAK         |"
-	@echo "      '\ '\ |                             |"
-	@echo "        '\ '|                             |"
-	@echo "        _/ /\                             /"
-	@echo "       (__/  \                           /"
-	@echo '    _..---""` \                         /`""---.._'
-	@echo " .-'           \                       /          '-."
-	@echo ":               '-.__             __.-'              :"
-	@echo ':                  ) ""---...---"" (                :'
-	@echo "\'._                '"--...___...--"'              _.'"
-	@echo '   \""--..__                              __..--""/'
-	@echo "     '._     """----.....______.....----"""         _.'"
-	@echo '         ""--..,,_____            _____,,..--"""'''
-	@echo '                      """------"""'
-	@sleep 0.5
-	@clear
-	@echo ""
-	@echo "                 ("
-	@echo "	                  )      ("
-	@echo "               ___..(.------)--....___"
-	@echo '           .-""       )   (           ""-.'
-	@echo "      .-''''|-._      (       )        _.-|"
-	@echo '     /  .--.|   `""---...........---""`   |'
-	@echo "    /  /    |                             |"
-	@echo "    |  |    |                             |"
-	@echo "     \  \   |                             |"
-	@echo "      '\ '\ |                             |"
-	@echo "        '\ '|                             |"
-	@echo "        _/ /\                             /"
-	@echo "       (__/  \                           /"
-	@echo '    _..---""` \                         /`""---.._'
-	@echo " .-'           \                       /          '-."
-	@echo ":               '-.__             __.-'              :"
-	@echo ':                  ) ""---...---"" (                :'
-	@echo "\'._                '"--...___...--"'              _.'"
-	@echo '   \""--..__                              __..--""/'
-	@echo "     '._     """----.....______.....----"""         _.'"
-	@echo '         ""--..,,_____            _____,,..--"""'''
-	@echo '                      """------"""'
-	@sleep 0.5
-	@clear
-	@echo ""
-	@echo "               ("
-	@echo "	                  )     ("
-	@echo "               ___..(.------)--....___"
-	@echo '           .-""      )    (           ""-.'
-	@echo "      .-''''|-._      (       )        _.-|"
-	@echo '     /  .--.|   `""---...........---""`   |'
-	@echo "    /  /    |                             |"
-	@echo "    |  |    |                             |"
-	@echo "     \  \   |        COFFEE BREAK         |"
-	@echo "      '\ '\ |                             |"
-	@echo "        '\ '|                             |"
-	@echo "        _/ /\                             /"
-	@echo "       (__/  \                           /"
-	@echo '    _..---""` \                         /`""---.._'
-	@echo " .-'           \                       /          '-."
-	@echo ":               '-.__             __.-'              :"
-	@echo ':                  ) ""---...---"" (                :'
-	@echo "\'._                '"--...___...--"'              _.'"
-	@echo '   \""--..__                              __..--""/'
-	@echo "     '._     """----.....______.....----"""         _.'"
-	@echo '         ""--..,,_____            _____,,..--"""'''
-	@echo '                      """------"""'
-	@sleep 0.5
-	@clear
-	@echo ""
-	@echo "             (         ) "
-	@echo "	              )        ("
-	@echo "               ___)...----)----....___"
-	@echo '           .-""      )    (           ""-.'
-	@echo "      .-''''|-._      (       )        _.-|"
-	@echo '     /  .--.|   `""---...........---""`   |'
-	@echo "    /  /    |                             |"
-	@echo "    |  |    |                             |"
-	@echo "     \  \   |                             |"
-	@echo "      '\ '\ |                             |"
-	@echo "        '\ '|                             |"
-	@echo "        _/ /\                             /"
-	@echo "       (__/  \                           /"
-	@echo '    _..---""` \                         /`""---.._'
-	@echo " .-'           \                       /          '-."
-	@echo ":               '-.__             __.-'              :"
-	@echo ':                  ) ""---...---"" (                :'
-	@echo "\'._                '"--...___...--"'              _.'"
-	@echo '   \""--..__                              __..--""/'
-	@echo "     '._     """----.....______.....----"""         _.'"
-	@echo '         ""--..,,_____            _____,,..--"""'''
-	@echo '                      """------"""'
-	@echo ""
+
 
 mfrcomplainte:
 	@clear
