@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 /**
  * @brief Écrit une chaîne de caractères dans un descripteur de fichier.

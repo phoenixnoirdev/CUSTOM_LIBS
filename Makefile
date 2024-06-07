@@ -115,6 +115,8 @@ clean:
 
 fclean: clean
 	@$(MAKE) -sC $(LIBFT_DIR) fclean
+	@$(MAKE) -sC $(FTPRINTF_DIR) fclean
+	@$(MAKE) -sC $(GNL_DIR) fclean
 	@$(MAKE) -sC $(SRC_DIR) fclean
 	@$(RM) $(NAME)
 	@echo "$(CYAN)all executable files cleaned!$(NO_COLOR)"

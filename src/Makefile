@@ -6,7 +6,7 @@
 #    By: phkevin <phkevin@42luxembourg.lu>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 12:48:38 by phkevin           #+#    #+#              #
-#    Updated: 2024/06/01 18:31:27 by phkevin          ###   ########.fr        #
+#    Updated: 2024/06/07 17:05:50 by phkevin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ $(NAME): $(OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAMECC) optimised!$(NO_COLOR)"
 	@make --silent good
-	@make --silent separate
+	@make --silent separate_blue
 
 %.o: %.c
 	@$(CC) $(FLAGWS) -c -o $@ $<
