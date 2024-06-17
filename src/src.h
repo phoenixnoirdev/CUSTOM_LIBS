@@ -14,7 +14,7 @@
 # define SRC_H
 
 # include "../lib/libft/libft.h"
-# include "../lib/ftprintf/ft_printf.h"
+# include "../lib/ftprintf/libftprintf.h"
 # include "../lib/getnextline/libgetnextline.h"
 
 /* Color MSG*/
