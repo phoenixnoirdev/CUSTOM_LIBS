@@ -34,12 +34,13 @@ FILES		=	<your fic .c>
 #	Colors
 ################################################################################
 
-NO_COLOR = \033[0;39m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-CYAN = \033[0;96m
-RED = \033[0;31m
+NO_COLOR = 	\033[0;39m
+GREEN = 	\033[0;92m
+YELLOW = 	\033[0;93m
+BLUE = 		\033[0;94m
+CYAN = 		\033[0;96m
+RED = 		\033[0;31m
+PURPLE = 	\033[35m
 
 ################################################################################
 #	Rules
@@ -290,7 +291,7 @@ mfrcomplainte:
 	@echo "$(CYAN)HAAAA HAHAHAHAHA$(NO_COLOR)"
 	@sleep 0.5
 	@echo ""
-	@echo "$(GREEN)Cruel que tu est.$(NO_COLOR)"
+	@echo "$(GREEN)Cruel que tu es.$(NO_COLOR)"
 	@echo ""
 
 mengcomplainte:
