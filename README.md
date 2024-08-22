@@ -17,7 +17,7 @@
 | ft_striteri    | ft_strjoin     | ft_strlcat     | ft_strlcpy     |
 | ft_strlen      | ft_strmapi     | ft_strncmp     | ft_strnstr     |
 | ft_strrchr     | ft_strtrim     | ft_substr      | ft_tolower     |
-| ft_toupper     |                |                |                |
+| ft_toupper     | ft_ispaire     | ft_strcmp      | ft_strequal    |
 
 
 
