@@ -31,6 +31,7 @@ int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_isrc(int c);
+int			ft_ispaire(int c);
 
 /*
  * Fonction "String"
@@ -52,6 +53,8 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strequal(const char *str1, const char *str2);
 
 /*
  * Fonction "Memoire"

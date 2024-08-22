@@ -36,6 +36,7 @@ FILES	=	ft_atoi.c \
 			ft_isalpha.c \
 			ft_isascii.c \
 			ft_isdigit.c \
+			ft_ispaire.c \
 			ft_isprint.c \
 			ft_isrc.c \
 			ft_itoa.c \
@@ -59,7 +60,9 @@ FILES	=	ft_atoi.c \
 			ft_putstr_fd.c \
 			ft_split.c \
 			ft_strchr.c \
+			ft_strcmp.c \
 			ft_strdup.c \
+			ft_strequal.c \
 			ft_striteri.c \
 			ft_strjoin.c \
 			ft_strlcat.c \
