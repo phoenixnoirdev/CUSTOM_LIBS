@@ -15,7 +15,7 @@
 ################################################################################
 
 CC		=	clang
-FLAGWS	=	-Wall -Wextra -Werror
+FLAGWS	=	-g -Wall -Wextra -Werror
 AR		=	ar rcs
 RM		=	/bin/rm -f
 
